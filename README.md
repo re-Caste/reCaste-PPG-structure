@@ -1,14 +1,14 @@
-## LANCER: PPG Structure Rules
+# LANCER: PPG Structure Rules
 Implementations of One Stress for All and @_valkyrion's Structuring houserules, intended for use with the Prototype Pattern Groups LCP
 
-# One Stress for All
+### One Stress for All
 This rule is from @Stormtalus's house rules discussed on Pilot Net. Replace the rules for Overheating and Reactor Stress with the following:
 
     "All characters with a HEAT CAP – PC or NPC – only have 1 STRESS and cannot gain more. When a character would take Heat that would put them over their HEAT CAP, they become EXPOSED and OVERHEATED. Any Heat they take beyond their HEAT CAP is instead taken as energy damage that cannot be reduced."
 
 This change removes the potential for a reactor meltdown, but unifies the rules for multi-Stress and single-Stress characters in a way that prevents outright heatgunning from killing a PC or NPC. Mechs generally have twice as much HP than their Heat Cap, and safety from "overheating damage" is a single Stabilize away, so this ensures that inflicting Heat is more of a control effect (through Overheated and encouraging Stabilize) than just a second health bar for both PCs and NPCs.
 
-# Low Variance Structure
+### Low Variance Structure
 Replace the rules for Structure Damage with the following:
 
     "When a character takes structure damage, instead of making a structure damage check, the affected character chooses to either be DAZED until the end of their next turn, or to suffer the System Trauma effect from the STRUCTURE DAMAGE TABLE (Lancer, p. 80)."
