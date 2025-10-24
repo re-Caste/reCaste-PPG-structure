@@ -3,16 +3,15 @@
     "title": "LANCER: PPG Structure Rework",
     "description": "Integration of Valk's low variance structure, and of One Stress for All",
     "version": "0.1",
-	"manifest": "https://github.com/re-Caste/valk-Structure-Stress-reworks/releases/latest/module.json",
-	"download": "https://github.com/re-Caste/valk-Structure-Stress-reworks/releases/latest/module.zip",
+	"manifest": "https://github.com/re-Caste/reCaste-PPG-structure/releases/latest/module.json",
+	"download": "https://github.com/re-Caste/reCaste-PPG-structure/releases/latest/module.zip",
 	"compatibility": {
 		"minimum": 12,
 		"verified": 12
 	},
     "authors": [
         {
-            "name": "reCaste",
-            "url": "https://github.com/re-Caste/valk-Structure-Stress-reworks"
+            "name": "reCaste"
         }
     ],
 	"relationships": {
