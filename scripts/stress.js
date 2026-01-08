@@ -8,7 +8,7 @@ export async function overheatRework(state) {
             return false;
         }
 
-        const token = canvas.scene.tokens.find(i=>i.actor._id === actor._id); // Grab token for targeting later
+        const token = canvas.tokens.get(canvas.scene.tokens.find(i=>i.actor._id === actor._id)._id); // Grab token for targeting later
         const excess = actor.system.heat.value - actor.system.heat.max; // Get overflowed heat
         console.log("Excess heat: "+excess);
 
@@ -22,6 +22,8 @@ export async function overheatRework(state) {
             console.log("No heat cap, skipping exposed/overheated")
         };
 
+        console.log(token)
+        await token.setTarget(true, { releaseOthers: true });
         const dmgConfig = {
             hit_results: [{
                 target: token,
@@ -36,6 +38,7 @@ export async function overheatRework(state) {
         };
         const dmgFlow = new(game.lancer.flows.get("DamageRollFlow"))(actor, dmgConfig); // Call damage
         await dmgFlow.begin();
+        await token.setTarget(false, { releaseOthers: true });
         await actor.update({"system.heat.value":actor.system.heat.max}); // Set the token back to their heat cap
 
         return true;
