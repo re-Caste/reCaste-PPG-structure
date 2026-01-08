@@ -1,4 +1,5 @@
 import { moduleId } from "./consts.js";
+import { handleHeat } from "./damage.js";
 import { overheatRework } from "./stress.js";
 import { structureRework, structureInsertTraumaRework } from "./structure.js";
 
@@ -23,6 +24,11 @@ Hooks.once("lancer.registerFlows", (flowSteps, flows) => {
     flowSteps.set(`${moduleId}:overheatRework`, overheatRework)
     stressFlow?.insertStepBefore("preOverheatRollChecks", `${moduleId}:overheatRework`);
     stressFlow?.insertStepBefore("preOverheatRollChecks", "stopFlow");
+
+    //Damage
+    const damageFlow = flows.get("DamageRollFlow")
+    flowSteps.set(`${moduleId}:handleHeat`, handleHeat)
+    damageFlow?.insertStepBefore("printDamageCard", `${moduleId}:handleHeat`)
 })
 
 // Helpers //
