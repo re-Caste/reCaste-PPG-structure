@@ -8,7 +8,7 @@ export async function overheatRework(state) {
             return false;
         }
 
-        const token = canvas.tokens.get(canvas.scene.tokens.find(i=>i.actor._id === actor._id)._id); // Grab token for targeting later
+        const token = canvas.tokens.placeables.filter(i=>i.actor.system.heat.value > i.actor.system.heat.max).find(i=>i.actor._id === actor._id); // Grab token for targeting later
         const excess = actor.system.heat.value - actor.system.heat.max; // Get overflowed heat
         console.log("Excess heat: "+excess);
 
