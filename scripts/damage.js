@@ -22,3 +22,27 @@ export async function handleHeat(state) {
         return false
     }
 };
+
+export async function rechargeHeat(state) {
+    try {
+        var heat = 0;
+        switch(Number(state.data.tags?.find(i=>i.name==="Recharge {VAL}+").val)) {
+            case 4:
+                heat = 1;
+                break;
+            case 5:
+                heat = 1;
+                break;
+            case 6:
+                heat = 2;
+                break;
+            default:
+                heat = 0
+        };
+        await state.actor.update({"system.heat.value":state.actor.system.heat.value+heat})
+
+        return true
+    } catch  {
+        return false
+    }
+}
