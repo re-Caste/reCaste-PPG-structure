@@ -26,7 +26,7 @@ export async function handleHeat(state) {
 export async function rechargeHeat(state) {
     try {
         var heat = 0;
-        switch(Number(state.data.tags?.find(i=>i.name==="Recharge {VAL}+").val)) {
+        switch(Number(state.data.tags?.find(i=>i.name==="Recharge {VAL}+")?.val ?? 0)) {
             case 4:
                 heat = 1;
                 break;
