@@ -24,9 +24,10 @@ export async function handleHeat(state) {
 };
 
 export async function rechargeHeat(state) {
+    if (state.data.tags?.find(i=>i.name==="Heat {VAL} (Self)")) return true // Skip if already paying heat tax
     try {
         var heat = 0;
-        switch(Number(state.data.tags?.find(i=>i.name==="Recharge {VAL}+").val)) {
+        switch(Number(state.data.tags?.find(i=>i.name==="Recharge {VAL}+")?.val ?? 0)) {
             case 4:
                 heat = 1;
                 break;
