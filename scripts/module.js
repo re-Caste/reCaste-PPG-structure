@@ -1,12 +1,15 @@
 import { moduleId } from "./consts.js";
 import { bindSettings, setting_id_struct, setting_id_stress, setting_id_recharge_heat  } from "./settings.js";
 import { handleHeat, rechargeHeat } from "./damage.js";
+import { addStatuses } from "./statuses.js";
 import { overheatRework } from "./stress.js";
 import { structureRework, structureInsertTraumaRework } from "./structure.js";
 
 Hooks.once("init", () => {
     bindSettings();
 })
+
+Hooks.on("lancer.statusesReady", addStatuses)
 
 // Flows //
 Hooks.once("lancer.registerFlows", (flowSteps, flows) => {
