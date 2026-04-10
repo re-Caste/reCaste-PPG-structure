@@ -14,7 +14,7 @@
                 "hint": "Replace rolling on a Stress table with deterministic Exposed, Overheated, and damage"
             },
             "auto_overheat": {
-                "name": "Automate Overheat",
+                "name": "Automate Overheated",
                 "hint": "Automatically apply Overheated to characters who exceed their heatcap, and automatically remove it on Stabilize -> Cool Mech"
             },
             "recharge_heat": {
