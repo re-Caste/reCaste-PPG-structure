@@ -44,9 +44,9 @@ export async function overheatRework(state) {
 };
 
 export async function applyOverheat(state) {
-    console.log(state)
-    console.log(state.data.title)
-    console.log(["", "lancer.tables.overheat.title.destabilized"].includes(state.data.title))
+    // Sloppy solution to Danger Zone FX from LancerQoL not activating sometimes, should be essentially unnoticable
+    const wait = async (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    await wait(10);
     try {
         if (["", "lancer.tables.overheat.title.destabilized"].includes(state.data.title)) {
             await state.actor.toggleStatusEffect("overheated", {active:true})
@@ -60,8 +60,10 @@ export async function applyOverheat(state) {
 
 export async function clearOverheat(state) {
     try {
-        //console.log(state)
-        await state.actor.toggleStatusEffect("overheated", {active:false})
+        console.log(state)
+        if (state.data.option1==="Cool") {
+            await state.actor.toggleStatusEffect("overheated", {active:false})
+        }
 
         return true
     } catch {
