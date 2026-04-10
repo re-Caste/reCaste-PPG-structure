@@ -17,3 +17,9 @@ Structure damage in Lancer is a strange mechanic that feels more at home among O
 
 ### Recharge Heat
 Causes NPCs with Recharge {VAL}+ tags to gain heat when using them. The heat gained follows {1/1/2} for Recharge {4/5/6}+
+
+### Split Damage Cards
+Splits damage cards from attacks into their heat and "physical" components.
+
+### Overheated Automation
+Automates the application of Overheated when inflicted with Exposed both with and without One Stress for All active.

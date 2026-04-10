@@ -10,19 +10,15 @@ export async function overheatRework(state) {
 
         const token = canvas.tokens.placeables.filter(i=>i.actor.system.heat.value > i.actor.system.heat.max).find(i=>i.actor._id === actor._id); // Grab token for targeting later
         const excess = actor.system.heat.value - actor.system.heat.max; // Get overflowed heat
-        console.log("Excess heat: "+excess);
+        console.log("ppgDebug | Excess heat: "+excess);
 
         if (actor.system.heat.max !== 0) {
             await actor.toggleStatusEffect("exposed", {active:true});
-            try {
-                await actor.toggleStatusEffect("overheated", {active:true});
-            } catch {}; // Handles case if this is used without overheated being defined (e.g. running One Stress for All without the PPG lcp)
-            console.log("Statuses applied");
+            console.log("ppgDebug | Exposed applied");
         } else {
-            console.log("No heat cap, skipping exposed/overheated")
+            console.log("ppgDebug | No heat cap, skipping exposed/overheated")
         };
 
-        console.log(token)
         await token.setTarget(true, { releaseOthers: true });
         const dmgConfig = {
             hit_results: [{
@@ -32,7 +28,7 @@ export async function overheatRework(state) {
                 hit: true,
                 crit: false,
             }],
-            title: "Overheat",
+            title: "Overheat DAMAGE",
             damage: [{type:"Energy", val:excess.toString()}],
             paracausal: true,
         };
@@ -46,3 +42,29 @@ export async function overheatRework(state) {
         return false;
     }    
 };
+
+export async function applyOverheat(state) {
+    console.log(state)
+    console.log(state.data.title)
+    console.log(["", "lancer.tables.overheat.title.destabilized"].includes(state.data.title))
+    try {
+        if (["", "lancer.tables.overheat.title.destabilized"].includes(state.data.title)) {
+            await state.actor.toggleStatusEffect("overheated", {active:true})
+        }
+
+        return true
+    } catch {
+        return false
+    }
+}
+
+export async function clearOverheat(state) {
+    try {
+        //console.log(state)
+        await state.actor.toggleStatusEffect("overheated", {active:false})
+
+        return true
+    } catch {
+        return false
+    }
+}

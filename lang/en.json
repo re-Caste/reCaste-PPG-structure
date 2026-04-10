@@ -13,9 +13,17 @@
                 "name": "One Stress for All",
                 "hint": "Replace rolling on a Stress table with deterministic Exposed, Overheated, and damage"
             },
+            "auto_overheat": {
+                "name": "Automate Overheat",
+                "hint": "Automatically apply Overheated to characters who exceed their heatcap, and automatically remove it on Stabilize -> Cool Mech"
+            },
             "recharge_heat": {
                 "name": "Recharge Heat",
                 "hint": "Cause enemies to gain {1/1/2} heat when using systems with Recharge {4/5/6}+"
+            },
+            "split_damage": {
+                "name": "Split Damage Cards",
+                "hint": "Split the built-in damage flow  into Physical damage and Heat cards"
             }
         }
     }
