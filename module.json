@@ -2,7 +2,7 @@
     "id": "reCaste-PPG-structure",
     "title": "LANCER: PPG Structure Rework",
     "description": "Integration of Valk's low variance structure, and of One Stress for All",
-    "version": "0.6",
+    "version": "0.7",
 	"manifest": "https://github.com/re-Caste/reCaste-PPG-structure/releases/download/0.7/module.json",
 	"download": "https://github.com/re-Caste/reCaste-PPG-structure/releases/download/0.7/module.zip",
 	"compatibility": {
